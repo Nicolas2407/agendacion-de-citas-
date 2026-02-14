@@ -1,0 +1,239 @@
+/* ============================= */
+/* ESTILO GENERAL */
+/* ============================= */
+
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* ============================= */
+/* TITULO */
+/* ============================= */
+
+.titulo {
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+/* ============================= */
+/* BOTONES */
+/* ============================= */
+
+.btn-primary {
+  background: #00c6ff;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #0072ff;
+  transform: scale(1.05);
+}
+
+.btn-success {
+  background: #00b09b;
+  border: none;
+}
+
+.btn-warning,
+.btn-danger {
+  border-radius: 20px;
+}
+
+/* ============================= */
+/* FILTRO */
+/* ============================= */
+
+#filtroEstadoPrincipal {
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+/* ============================= */
+/* GRID */
+/* ============================= */
+
+#listaCitas {
+  margin-top: 30px;
+}
+
+/* IMPORTANTE: quitamos el flex que dañaba el responsive */
+.col-md-4 {
+  display: block;
+}
+
+/* ============================= */
+/* CARD DE CITAS */
+/* ============================= */
+
+.card-cita {
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  padding: 20px;
+  min-height: 350px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s ease;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 100%;
+}
+
+.card-cita:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card-cita::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.card-cita * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================= */
+/* TEXTO DENTRO DE CARD */
+/* ============================= */
+
+.card-cita,
+.card-cita h5,
+.card-cita p,
+.card-cita b,
+.card-cita span,
+.card-cita label {
+  color: #ffffff !important;
+}
+
+.card-cita h5 {
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.card-cita p {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.card-cita select {
+  color: #000;
+  font-weight: 500;
+}
+
+/* ============================= */
+/* ESTADOS */
+/* ============================= */
+
+.estado-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.estado-Abierta {
+  background: #00c853;
+}
+
+.estado-Terminada {
+  background: #2962ff;
+}
+
+.estado-Anulada {
+  background: #d50000;
+}
+
+/* ============================= */
+/* MODAL */
+/* ============================= */
+
+.modal-content {
+  border-radius: 20px;
+  background: #1e2a38;
+  color: #ffffff;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  border-radius: 15px;
+  background: #2c3e50;
+  color: #ffffff !important;
+  border: none;
+}
+
+.modal-content input::placeholder,
+.modal-content textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  box-shadow: 0 0 0 2px #00c6ff;
+  background: #34495e;
+  color: #ffffff;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+/* 📱 TELEFONO */
+@media (max-width: 576px) {
+
+  .container {
+    padding: 15px;
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .d-flex {
+    flex-direction: column !important;
+    gap: 10px;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  #listaCitas .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .card-cita {
+    min-height: auto;
+  }
+
+  .modal-dialog {
+    margin: 10px;
+  }
+
+}
+
+/* 📲 TABLET */
+@media (min-width: 577px) and (max-width: 992px) {
+
+  #listaCitas .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+}

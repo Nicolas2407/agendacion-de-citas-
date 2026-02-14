@@ -1,0 +1,81 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador de citas</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="pagina_de_citas.css">
+</head>
+<body>
+
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="titulo">Administrador de citas</h2>
+    <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#modalCita">
+      Agregar cita
+    </button>
+  </div>
+
+  <select id="filtroEstadoPrincipal" class="form-select mb-4" onchange="renderizarCitas()">
+    <option value="Todas">Todas 📋</option>
+    <option value="Abierta">Abiertas 🔓</option>
+    <option value="Terminada">Terminadas ✅</option>
+    <option value="Anulada">Anuladas ❌</option>
+  </select>
+
+  <div id="listaCitas" class="row g-3"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="modalCita">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content p-4">
+      <h4>Nueva cita</h4>
+
+      <input id="mascota" class="form-control mb-2" placeholder="Nombre de la mascota">
+      <input id="propietario" class="form-control mb-2" placeholder="Propietario">
+      <input id="telefono" class="form-control mb-2" placeholder="Teléfono">
+
+      <div class="row mb-2">
+        <div class="col">
+          <input type="date" id="fecha" class="form-control">
+        </div>
+        <div class="col">
+          <input type="time" id="hora" class="form-control">
+        </div>
+      </div>
+
+      <select id="tipoMascota" class="form-select mb-2">
+        <option value="">Tipo de mascota</option>
+        <option>Perro</option>
+        <option>Gato</option>
+        <option>Ave</option>
+        <option>Conejo</option>
+        <option>Hamster</option>
+        <option>Tortuga</option>
+        <option>Pez</option>
+        <option>Serpiente</option>
+        <option>Caballo</option>
+        <option>Otro</option>
+      </select>
+
+      <textarea id="sintomas" class="form-control mb-3" placeholder="Síntomas"></textarea>
+
+      <div class="text-end">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-success" onclick="guardarCita()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="mascotas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
