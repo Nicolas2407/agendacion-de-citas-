@@ -1,6 +1,30 @@
     let citas = [];
 let editando = null;
 
+/* Inputs */
+const mascotaInput = v => v !== undefined ? mascota.value = v : mascota.value;
+const propietarioInput = v => v !== undefined ? propietario.value = v : propietario.value;
+const telefonoInput = v => v !== undefined ? telefono.value = v : telefono.value;
+const fechaInput = v => v !== undefined ? fecha.value = v : fecha.value;
+const horaInput = v => v !== undefined ? hora.value = v : hora.value;
+const tipoMascotaInput = v => v !== undefined ? tipoMascota.value = v : tipoMascota.value;
+const sintomasInput = v => v !== undefined ? sintomas.value = v : sintomas.value;
+
+/* Helpers */
+const alerta = (t, i) => Swal.fire({ title: t, icon: i, timer: 1800, showConfirmButton: false });
+const abrirModal = () => new bootstrap.Modal(document.getElementById('modalCita')).show();
+const cerrarModal = () => bootstrap.Modal.getInstance(document.getElementById('modalCita')).hide();
+
+function limpiarFormulario() {
+  mascotaInput('');
+  propietarioInput('');
+  telefonoInput('');
+  fechaInput('');
+  horaInput('');
+  tipoMascotaInput('');
+  sintomasInput('');
+}
+
 function guardarCita() {
   const mascota = mascotaInput();
   const propietario = propietarioInput();
@@ -28,7 +52,7 @@ function guardarCita() {
   };
 
   if (editando) {
-    citas = citas.map(c => c.id === editando ? cita : c);
+    citas = citas.map(c => (c.id === editando) ? cita : c);
     editando = null;
   } else {
     citas.push(cita);
@@ -114,29 +138,13 @@ function eliminar(id) {
   });
 }
 
-function limpiarFormulario() {
-  mascotaInput('');
-  propietarioInput('');
-  telefonoInput('');
-  fechaInput('');
-  horaInput('');
-  tipoMascotaInput('');
-  sintomasInput('');
-}
 
-/* Helpers */
-const alerta = (t, i) => Swal.fire({ title: t, icon: i, timer: 1800, showConfirmButton: false });
-const abrirModal = () => new bootstrap.Modal(document.getElementById('modalCita')).show();
-const cerrarModal = () => bootstrap.Modal.getInstance(document.getElementById('modalCita')).hide();
 
-/* Inputs */
-const mascotaInput = v => v !== undefined ? mascota.value = v : mascota.value;
-const propietarioInput = v => v !== undefined ? propietario.value = v : propietario.value;
-const telefonoInput = v => v !== undefined ? telefono.value = v : telefono.value;
-const fechaInput = v => v !== undefined ? fecha.value = v : fecha.value;
-const horaInput = v => v !== undefined ? hora.value = v : hora.value;
-const tipoMascotaInput = v => v !== undefined ? tipoMascota.value = v : tipoMascota.value;
-const sintomasInput = v => v !== undefined ? sintomas.value = v : sintomas.value;
+
+
+
+
+
 
 
 
